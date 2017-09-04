@@ -3,4 +3,8 @@ for (pos in c("QUARTERBACK" ,"RUNNING_BACK" ,"WIDE_RECEIVER" ,"TIGHT_END" ,"DEFE
   file = paste(pos, today, sep="_")
   file = paste(file, "csv", sep=".")
   mydata = read.csv(file)
+
+  #print(mydata)
+
+  rm(mydata)
 }
