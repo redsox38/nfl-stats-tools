@@ -2,6 +2,9 @@
 # read in original elo values if they exist
 prv = read.csv("current_ratings.csv")
 
+# create empty data frame for updates
+updated_ratings = prv[FALSE,]
+
 #for (pos in c("QUARTERBACK" ,"RUNNING_BACK" ,"WIDE_RECEIVER" ,"TIGHT_END" ,"DEFENSIVE_LINEMAN" ,"LINEBACKER" ,"DEFENSIVE_BACK" ,"KICK_RETURNER" ,"PUNT_RETURNER" ,"FIELD_GOAL_KICKER")) {
 for (pos in c("QUARTERBACK")) {
   today = format(Sys.time(), "%Y-%m-%d")
