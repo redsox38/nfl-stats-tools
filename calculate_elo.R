@@ -1,8 +1,14 @@
 
 default_elo = "1500"
 
+# weight for regular season games
+kval = 20
+
 # read in original elo values if they exist
 prv = read.csv("current_ratings.csv")
+
+# read in win expectancy weighting table
+wt = read.csv("winning_expectancy.csv")
 
 #for (pos in c("QUARTERBACK" ,"RUNNING_BACK" ,"WIDE_RECEIVER" ,"TIGHT_END" ,"DEFENSIVE_LINEMAN" ,"LINEBACKER" ,"DEFENSIVE_BACK" ,"KICK_RETURNER" ,"PUNT_RETURNER" ,"FIELD_GOAL_KICKER")) {
 for (pos in c("QUARTERBACK")) {
@@ -19,7 +25,13 @@ for (pos in c("QUARTERBACK")) {
   rm(mydata)
 
   # calculate new ELO scores by position
-
+  switch(pos,
+  QUARTERBACK={
+    print(pos)
+  },
+  RUNNING_BACK={
+    print(pos)
+  })
   
   write.csv(scored_pos_data[,c("Player","ELO")], file = outfile, na=default_elo, row.names=FALSE)
 
