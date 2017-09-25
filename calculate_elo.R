@@ -53,7 +53,8 @@ new_away_ratings <- data.frame(Team = ws$Away, PassOff = ws$NewAwayPassOff,
                                PassDef = ws$NewAwayPassDef, RunOff = ws$NewAwayRunOff, 
                                RunDef = ws$NewAwayRunDef)
 
-new_ratings <- rbind(new_home_ratings, new_away_ratings)
+new_ratings <- rbind(new_home_ratings, 
+                     new_away_ratings[!(new_away_ratings$Team %in% new_home_ratings$Team),])
 
 # set any NAs to default 
 new_ratings$PassOff[is.na(new_ratings$PassOff)] <- 1500
